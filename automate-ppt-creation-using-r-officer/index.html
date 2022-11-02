@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Wenxuan Blog">
+    <meta property="og:type" content="article">
+
+    
+    <meta property="og:image" content="https:wenxuanzhang.github.io/img/home-bg-jeep.jpg">
+    <meta property="twitter:image" content="https:wenxuanzhang.github.io/img/home-bg-jeep.jpg" />
+    
+
+    
+    <meta name="title" content="No more power point by hand — automate PPT creation by R Officer" />
+    <meta property="og:title" content="No more power point by hand — automate PPT creation by R Officer" />
+    <meta property="twitter:title" content="No more power point by hand — automate PPT creation by R Officer" />
+    
+
+    
+    <meta name="description" content="an example of automating deck creation using R Officer">
+    <meta property="og:description" content="an example of automating deck creation using R Officer" />
+    <meta property="twitter:description" content="an example of automating deck creation using R Officer" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="张文宣, ZhangWenxuan, Wenxuan Zhang,张文宣的网络日志,博客, WenxuanZhang Blog">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>No more power point by hand — automate PPT creation by R Officer | WenxuanZhang Blog</title>
+
+    <link rel="canonical" href="/automate-ppt-creation-using-r-officer/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.15.1/css/all.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    <script src="/js/lazysizes.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Wenxuan Blog</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">All Posts</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/tech">tech</a>
+                        </li>
+                        
+                    
+                    
+		    
+                        <li><a href="/about/">ABOUT</a></li>
+                    
+                        <li><a href="/archive/">ARCHIVE</a></li>
+                    
+		            <li>
+                        <a href="/search"><i class="fa fa-search"></i></a>
+		           </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('/img/post-bg-coffee.jpeg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/rofficer" title="ROfficer">
+                            ROfficer
+                        </a>
+                        
+                        <a class="tag" href="/tags/ppt" title="PPT">
+                            PPT
+                        </a>
+                        
+                    </div>
+                    <h1>No more power point by hand — automate PPT creation by R Officer</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                Wenxuan Zhang
+                             
+                            on 
+                            Monday, October 31, 2022
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <p>As a data scientist, you draw insights from data and present it in a informative and visually appealing way. There are good tools (Tableau, Looker, Power BI) to help you tell the story, while what if your boss prefers PowerPoint?</p>
+<p>It is not hard to make PowerPoint, but it takes time and effort. You must be patient enough to adjust each font size and make sure all elements aligned. Besides, you must get very good stamina, if your PowerPoint is 100 pages. What’s more, one single change happened, and you need to redo the slides again. Believe me, that’s not fun.</p>
+<p>Luckily, the <a href="https://davidgohel.github.io/officer/">Officer</a> packages (developed by <a href="https://www.ardata.fr/">ArData</a>, a French data consultancy) provide a solution for users to manipulate the doc and pptx documents.</p>
+<p>This article, I will show you how to create a simple scorecard deck by region using Officer, mschart and flextable packages. Code and Data could be found in my <a href="https://github.com/WenxuanZhang/Powerpoint-Automation">GitHub repo</a>.</p>
+<p>The data used here is the superstore data. The Template is the Balanced Score Card template.</p>
+<p>
+  <img src="/img/scorecard1.png" alt="">
+
+</p>
+<h2 id="create-ppt">Create PPT</h2>
+<p>You can create an blank ppt or using a template as the starting point.</p>
+<pre tabindex="0"><code>my_pres &lt;- read_pptx() 
+my_pres &lt;- add_slide(my_pres, layout = “Title and Content”, master = “Office Theme”)
+print(my_pres,’example1.pptx’)
+#using template 
+my_pres &lt;- read_pptx(&#39;PerformanceScoreCard1.pptx&#39;) 
+my_pres &lt;- add_slide(my_pres, layout = &#34;Title and Content&#34;, master = &#34;Office Theme&#34;)
+print(my_pres,&#39;example2.pptx&#39;)
+</code></pre><p>
+  <img src="/img/scorecard2.png" alt="">
+
+</p>
+<h2 id="location">Location</h2>
+<p>To add elements to the location that you desired, there are two main approach in Officer: using elements in template or free location.</p>
+<pre tabindex="0"><code>my_pres &lt;- read_pptx(&#39;PerformanceScoreCard1.pptx&#39;) 
+my_pres &lt;- add_slide(my_pres)
+title_name &lt;- toupper(paste(&#39;WEST&#39;,&#39;SALES SCORECARD&#39;, sep = &#34; &#34;))
+paragraph &lt;- fpar(ftext(title_name,
+                        fp_text( font.size = 32,bold = TRUE,color = &#34;black&#34;,
+                                 font.family = &#34;Century Gothic (Headings)&#34;)),fp_p = fp_par(text.align = &#34;center&#34;))
+# using free location
+tt_loc &lt;- ph_location(left =1.59, top =0.31 , width =10.16 , height = 0.56)
+my_pres &lt;- ph_with(my_pres, value = paragraph, 
+                   location = tt_loc)
+# using elements in power point
+my_pres &lt;- add_slide(my_pres)
+my_pres &lt;- ph_with(my_pres, value = paragraph, 
+                   location = ph_location_type(&#39;body&#39;))
+print(my_pres,&#39;example.pptx&#39;)
+</code></pre><p>
+  <img src="/img/scorecard3.png" alt="">
+
+</p>
+<p>To get <strong>location</strong>, all you need to do is to leverage the ppt guideline to identify the location.</p>
+<p>For example, the very center of a power point slide is (0,0) while in officer R, the (0,0) point is the top left corner. Thus, the center point in the officer R will be left = 6.67, top = 3.75). You could find the location of any point in a slides using this method.</p>
+<p>
+  <img src="/img/scorecard4.png" alt="">
+
+</p>
+<p>To pin point the location of current slides, using</p>
+<pre tabindex="0"><code>layout_properties ( x = mypres, layout = &#34;Title and Content&#34; )
+</code></pre><p>
+  <img src="/img/scorecard5.png" alt="">
+
+</p>
+<h2 id="add-table">Add Table</h2>
+<p>In the scorecard, there are two tables. One is the category summary and another is the top 5 products. The details of how this table was calculated will not be discussed here.</p>
+<p>The data could be added to the powerpoint in flextable object.</p>
+<pre tabindex="0"><code>cate_table &lt;- cate_summary(regions,data)
+t1_loc &lt;- ph_location(left = 0.45, top = 1.2)
+cate_table_ft &lt;- flextable(cate_table)
+my_pres &lt;- ph_with(my_pres, value = cate_table_ft, 
+                   location = t1_loc)
+print(my_pres,&#39;example.pptx&#39;)
+</code></pre><p>
+  <img src="/img/scorecard6.png" alt="">
+
+</p>
+<p>However, this table does not look quite like the original one on the scorecard. We need to remove the borderline, change the header color, format the number, redefine the column width and height and create the heat map using the code below (details of the get color could be found here).</p>
+<pre tabindex="0"><code>all_table_format &lt;- function(prod_table){
+  row_num &lt;- dim(prod_table)[1]
+  ft &lt;- flextable(prod_table)
+  ft &lt;- ft %&gt;% border_remove()%&gt;%surround(
+    border = fp_border_default(color = &#34;grey&#34;, width = 1))
+  ft &lt;- ft %&gt;% font(font= &#34;Calibri&#34;,part = &#39;all&#39;)
+  ft &lt;- ft %&gt;% bg(bg = &#34;#C00000&#34;,part = &#39;header&#39;)
+  ft &lt;- ft %&gt;% bold(i = 1,part =&#39;header&#39;)%&gt;%
+    color(i =1,color = &#39;white&#39;,part = &#39;header&#39;)
+  ft &lt;- ft %&gt;% set_formatter(`Sales Growth` = function(x) sprintf( &#34;%.1f%%&#34;, x*100),
+                             `Profit Growth` = function(x) sprintf( &#34;%.1f%%&#34;, x*100),
+                             `TY Profit Ratio` = function(x) sprintf( &#34;%.1f%%&#34;, x*100),
+                             `LY Profit Ratio` = function(x) sprintf( &#34;%.1f%%&#34;, x*100))
+  ft &lt;- ft %&gt;% colformat_num(j = c(2,4), prefix = &#34;$&#34;)
+  ft &lt;- ft %&gt;% bg(bg = &#34;#D9D9D9&#34;,i = 1, part = &#39;body&#39;)%&gt;%bold(i =1,part =&#39;body&#39;)
+  ft &lt;- ft %&gt;% fontsize(size = 10.5, part = &#39;header&#39;)
+  ft &lt;- ft %&gt;% bg(i = c(2:row_num),j = 3,bg = get_color(prod_table,3)[2:row_num],part = &#39;body&#39;)
+  ft &lt;- ft %&gt;% bg(i = c(2:row_num) ,j = 5,bg = get_color(prod_table,5)[2:row_num],part = &#39;body&#39;)
+  return(ft)
+}
+cate_table &lt;- cate_summary(regions,data)
+t1_loc &lt;- ph_location(left = 0.45, top = 1.2)
+#cate_table_ft &lt;- flextable(cate_table)
+cate_table_ft &lt;- all_table_format(cate_table)
+cate_table_ft &lt;- cate_table_ft %&gt;% fontsize(size = 14, part = &#39;body&#39;)%&gt;%
+  width(j = c(1,2,4),width = c(1.3,0.88,0.84))%&gt;%
+  width(j = c(3,5,6,7), width = c(0.7))%&gt;%
+  height(height = 0.32 ,part = &#39;body&#39;)%&gt;%
+  height(height = 0.54, part = &#39;header&#39;)%&gt;%fontsize(size = 13,part = &#39;body&#39;)
+my_pres &lt;- ph_with(my_pres, value = cate_table_ft, 
+                   location = t1_loc)
+print(my_pres,&#39;example.pptx&#39;)
+</code></pre><p>
+  <img src="/img/scorecard7.png" alt="">
+
+</p>
+<h2 id="add-chart">Add Chart</h2>
+<p>The mschart package provides a method to generate powerpoint chart. It supports bar, line, scatter, and area map, however, the combo chart is not supported at this point.</p>
+<p>Adding a chart in the powerpoint is similar.</p>
+<p>1.Prepare data
+2.Plot the chart
+3.Formatting the chart
+4.Add a chart to powerpoint</p>
+<pre tabindex="0"><code>###Adding chart 
+# preparing data 
+c3_loc &lt;- ph_location(left = 0.45, top = 3.15,width = 12.46, height = 3.46)
+month_table &lt;- month_summary(regions,data)
+month_table &lt;- month_table %&gt;%pivot_longer(!Month, names_to = &#34;Metrics&#34;, values_to = &#34;Sales&#34;)
+month_table &lt;- month_table %&gt;% mutate(Month = as.factor(Month))
+month_table &lt;- month_table %&gt;% mutate(ksales = paste(&#39;$&#39;,round(Sales/1000,0),sep = &#34;&#34;))
+my_barchart &lt;- ms_barchart(data = month_table , 
+                           x = &#34;Month&#34;, y = &#34;Sales&#34;, group = &#34;Metrics&#34;,labels = &#34;ksales&#34;)  
+#change lable setting 
+fp_text_settings &lt;- list(
+  `LY Sales` = fp_text(font.size = 12),
+  `TY Sales` = fp_text(font.size = 12)
+)
+my_barchart &lt;- chart_labels_text( my_barchart,
+                                  values = fp_text_settings )
+my_barchart &lt;- chart_data_labels(my_barchart, position = &#34;outEnd&#34;)
+#change fill color and borderline 
+my_barchart&lt;- chart_data_fill(my_barchart,
+                              values = c(`TY Sales` = &#34;#D9D9D9&#34;, `LY Sales` = &#34;#C00000&#34;))
+my_barchart &lt;- chart_data_stroke(my_barchart, values = &#34;transparent&#34; )
+#change lengend position and remove border line 
+my_theme &lt;- mschart_theme(legend_position = &#39;t&#39;,grid_major_line = fp_border(color = &#34;#99999999&#34;, style = &#34;none&#34;))
+my_barchart &lt;- set_theme(my_barchart, my_theme)
+#change y axis format 
+my_barchart&lt;- chart_ax_y(my_barchart,num_fmt = &#39;$#,##0,&#39;)
+#add chart to table
+my_pres &lt;- ph_with(my_pres, value = my_barchart,
+                   location = c3_loc)
+</code></pre><p>
+  <img src="/img/scorecard8.png" alt="">
+
+</p>
+<p>Using similar method, you could create scorecards for the rest of the region.</p>
+<p>Hope this is helpful. Any discussion is welcome!</p>
+<p>The cheatsheet of officer R could be found <a href="https://github.com/WenxuanZhang/Powerpoint-Automation/blob/main/Power%20Point%20Element.docx%20(1).pdf">here</a>.</p>
+
+
+                
+
+                
+
+                
+
+
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+                <section>
+                    <hr>
+                    <h5>FRIENDS</h5>
+                    <ul class="list-inline">
+                        
+                        <li><a target="_blank" href="https://yxue-me.com/">Yishu Xue</a></li>
+                        
+                    </ul>
+                </section>
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">                  
+                    
+                    
+                    
+                    
+                    
+
+		            
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/WenxuanZhang">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/wenxuanzhang5/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    <li>
+                        <a target="_blank" href="https://medium.com/@zhangwenxuan1">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-medium fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+           
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Wenxuan Blog" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+            
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Wenxuan Blog 2022
+                    <br>
+                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> <a href="https://zhaohuabing.com"></a> |
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="100px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>
