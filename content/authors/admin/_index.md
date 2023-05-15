@@ -35,7 +35,7 @@ education:
     - course: M.A. in Statistics
       institution: Columbia University
       year: 2015
-    - course: B.A. in Public Policy
+    - course: B.A. in Social Science
       institution: Zhejiang University
       year: 2013
   
@@ -44,10 +44,7 @@ education:
 # For available icons, see: https://wowchemy.com/docs/getting-started/page-builder/#icons
 #   For an email link, use "fas" icon pack, "envelope" icon, and a link in the
 #   form "mailto:your-email@example.com" or "/#contact" for contact widget.
-social:
-  - icon: envelope
-    icon_pack: fab
-    link: 'wenxuan.zhang.92@gmail.com'
+
   - icon: github
     icon_pack: fab
     link: https://github.com/WenxuanZhang
