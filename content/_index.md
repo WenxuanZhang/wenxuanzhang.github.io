@@ -15,18 +15,31 @@ sections:
     content:
       title: Skills
       items:
-        - name: Python
-          description: 90%
-          icon: r-project
-          icon_pack: fab
         - name: Statistics
-          description: 100%
+          description: A/B test + ANNOVA + Regression 
           icon: chart-line
           icon_pack: fas
-        - name: Photography
-          description: 10%
-          icon: camera-retro
+         - name: Optimization
+          description: Linear/Quadratic/Non-Linear Programming
+          icon: chart-line-up
+          icon_pack: fas         
+        - name: R
+          description: tidyverse + xgboost + shiny 
+          icon: r-project
+          icon_pack: fab
+        - name: Python
+          description: pandas + scikit-learn + pytorch
+          icon: python
+          icon_pack: fab
+        - name: SQL
+          description: database design + data pipeline 
+          icon: database
           icon_pack: fas
+        - name: Tableau
+          description: dashboard design + Tableau Prep
+          icon: gauge
+          icon_pack: fas
+          
   - block: experience
     content:
       title: Experience
