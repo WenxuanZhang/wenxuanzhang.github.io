@@ -1,6 +1,6 @@
 ---
 # Display name
-title: Wenxuan Zhang 张文宣
+title: Wenxuan Zhang 
 
 # Full name (for SEO)
 first_name: Wenxuan
