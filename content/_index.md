@@ -33,11 +33,11 @@ sections:
           icon_pack: fab
         - name: SQL
           description: database design + data pipeline 
-          icon: database
+          icon: chart-line
           icon_pack: fas
         - name: Tableau
           description: dashboard design + Tableau Prep
-          icon: gauge
+          icon: chart-line
           icon_pack: fas
           
   - block: experience
