@@ -29,8 +29,8 @@ sections:
           icon_pack: fab
         - name: Python
           description: pandas + scikit-learn + pytorch
-          icon: python
-          icon_pack: fab
+          icon: chart-line
+          icon_pack: fas
         - name: SQL
           description: database design + data pipeline 
           icon: chart-line
