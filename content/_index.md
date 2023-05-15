@@ -20,7 +20,7 @@ sections:
           icon: chart-line
           icon_pack: fas
          - name: Optimization
-          description: Linear/Quadratic/Non-Linear Programming
+          description: LP/QP/NLP
           icon: chart-line-up
           icon_pack: fas         
         - name: R
