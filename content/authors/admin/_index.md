@@ -58,8 +58,8 @@ social:
   # To use: copy your resume to `static/uploads/resume.pdf`, enable `ai` icons in `params.yaml`,
   # and uncomment the lines below.
   - icon: medium
-    icon_pack:fab
-    link:https://medium.com/@zhangwenxuan1
+    icon_pack: fab
+    link: https://medium.com/@zhangwenxuan1
 
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
