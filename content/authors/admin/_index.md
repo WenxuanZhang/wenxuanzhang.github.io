@@ -14,7 +14,7 @@ status:
 superuser: true
 
 # Role/position/tagline
-role: Revenue Management Lead of Ferrero
+role: Data Scientist/Coder/Archer
 # Organizations/Affiliations to show in About widget
 organizations:
   - name: Ferrero Group
@@ -46,7 +46,7 @@ education:
 #   form "mailto:your-email@example.com" or "/#contact" for contact widget.
 social:
   - icon: envelope
-    icon_pack: fas
+    icon_pack: fab
     link: 'wenxuan.zhang.92@gmail.com'
   - icon: github
     icon_pack: fab
@@ -69,7 +69,7 @@ email: ''
 highlight_name: true
 ---
 
-Hello, world! I am Wenxuan Zhang, a data science practitioner with experience in marketing, advertising, retail industry. I am passionate about using data to solve practical business questions including but not limited to:
+Hello, world! I am Wenxuan Zhang, a data science practitioner with experience in marketing, advertising and retail industry. I am passionate about using data to solve practical business questions including but not limited to:
 
 * What creative copy is more effective in driving brand awareness?
 * Would the incremental investment in tik tok generate more social impact?
