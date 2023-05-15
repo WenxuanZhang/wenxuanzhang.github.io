@@ -47,22 +47,20 @@ education:
 social:
   - icon: envelope
     icon_pack: fas
-    link: '/#contact'
-  - icon: graduation-cap # Alternatively, use `google-scholar` icon from `ai` icon pack
-    icon_pack: fas
-    link: https://scholar.google.co.uk/citations?user=sIwtMXoAAAAJ
+    link: 'wenxuan.zhang.92@gmail.com'
   - icon: github
     icon_pack: fab
-    link: 
+    link: https://github.com/WenxuanZhang
   - icon: linkedin
     icon_pack: fab
-    link: https://www.linkedin.com/
+    link: https://www.linkedin.com/in/wenxuanzhang5/
   # Link to a PDF of your resume/CV.
   # To use: copy your resume to `static/uploads/resume.pdf`, enable `ai` icons in `params.yaml`,
   # and uncomment the lines below.
-  - icon: cv
-    icon_pack: ai
-    link: uploads/resume.pdf
+  - icon: medium
+    icon_pack:fab
+    link:https://medium.com/@zhangwenxuan1
+
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 email: ''
@@ -71,5 +69,14 @@ email: ''
 highlight_name: true
 ---
 
-Alice Wu is a professor of artificial intelligence at the Stanford AI Lab. Her research interests include distributed robotics, mobile computing and programmable matter. She leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
+Hello, world! I am Wenxuan Zhang, a data science practitioner with experience in marketing, advertising, retail industry. I am passionate about using data to solve practical business questions including but not limited to:
+
+* What creative copy is more effective in driving brand awareness?
+* Would the incremental investment in tik tok generate more social impact?
+* Which customer is more likely to buy our product?
+
+you name it. 
+
+When I am not crunching data or coding, you might find me struggling to reduce score variance in the archery club, playing guqin or trying to finish a book before library deadline.
+
 {style="text-align: justify;"}
