@@ -20,24 +20,24 @@ sections:
           icon: chart-line
           icon_pack: fas
         - name: Optimization
-          description: #LP/QP/NLP
-          icon: chart-line
+          description: LP/QP/NLP 
+          icon: arrow-up-right-dots
           icon_pack: fas         
         - name: R
-          description: #tidyverse + xgboost + shiny 
+          description: tidyverse + xgboost + shiny  
           icon: r-project
           icon_pack: fab
         - name: Python
-          description: #pandas + scikit-learn + pytorch
-          icon: chart-line
-          icon_pack: fas
+          description: pandas + scikit-learn + pytorch 
+          icon: python
+          icon_pack: fab
         - name: SQL
-          description: #database design + data pipeline 
-          icon: chart-line
+          description: database design + data pipeline 
+          icon: database
           icon_pack: fas
         - name: Tableau
-          description: #dashboard design + Tableau Prep
-          icon: chart-line
+          description: dashboard design + Tableau Prep 
+          icon: gauge
           icon_pack: fas
           
   - block: experience
