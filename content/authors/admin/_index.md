@@ -77,6 +77,6 @@ Hello, world! I am Wenxuan Zhang, a data science practitioner with experience in
 
 you name it. 
 
-When I am not crunching data or coding, you might find me struggling to reduce score variance in the archery club, playing guqin or trying to finish a book before library deadline.
+When I am not crunching data or coding, you might find me struggling to reduce score variance in the archery club, playing guqin or trying to invent recipes.
 
 {style="text-align: justify;"}
