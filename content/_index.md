@@ -16,27 +16,27 @@ sections:
       title: Skills
       items:
         - name: Statistics
-          description: A/B test + ANNOVA + Regression 
+          description: #A/B test + ANNOVA + Regression 
           icon: chart-line
           icon_pack: fas
-         - name: Optimization
-          description: LP/QP/NLP
+        - name: Optimization
+          description: #LP/QP/NLP
           icon: chart-line
           icon_pack: fas         
         - name: R
-          description: tidyverse + xgboost + shiny 
+          description: #tidyverse + xgboost + shiny 
           icon: r-project
           icon_pack: fab
         - name: Python
-          description: pandas + scikit-learn + pytorch
+          description: #pandas + scikit-learn + pytorch
           icon: chart-line
           icon_pack: fas
         - name: SQL
-          description: database design + data pipeline 
+          description: #database design + data pipeline 
           icon: chart-line
           icon_pack: fas
         - name: Tableau
-          description: dashboard design + Tableau Prep
+          description: #dashboard design + Tableau Prep
           icon: chart-line
           icon_pack: fas
           
