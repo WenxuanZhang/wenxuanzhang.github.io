@@ -21,7 +21,7 @@ sections:
           icon_pack: fas
          - name: Optimization
           description: LP/QP/NLP
-          icon: chart-line-up
+          icon: chart-line
           icon_pack: fas         
         - name: R
           description: tidyverse + xgboost + shiny 
