@@ -16,7 +16,7 @@ sections:
       title: Skills
       items:
         - name: Statistics
-          description: #A/B test + ANNOVA + Regression 
+          description: A/B test + ANNOVA + Regression  
           icon: chart-line
           icon_pack: fas
         - name: Optimization
