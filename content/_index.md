@@ -55,7 +55,7 @@ sections:
         - title: Revenue Management Lead
           company: Ferrero
           company_url: ''
-          company_logo: org-gc
+          company_logo: ferrero
           location: Chicago
           date_start: '2019-04-01'
           date_end: ''
