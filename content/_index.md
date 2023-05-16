@@ -112,8 +112,8 @@ sections:
       buttons:
         - name: All
           tag: '*'
-        - name: Deep Learning
-          tag: Deep Learning
+        - name: Marketing Mix Modeling
+          tag: MMM
         - name: Other
           tag: Demo
     design:
