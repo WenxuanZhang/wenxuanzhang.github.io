@@ -54,15 +54,13 @@ sections:
       items:
         - title: Revenue Management Lead
           company: Ferrero
-          company_url: ''
-          company_logo: ferrero
+          company_url: 'https://www.ferrero.com/'
           location: Chicago
           date_start: '2019-04-01'
           date_end: ''
         - title: Manager, Data Science 
           company: Inter Public Group
-          company_url: ''
-          company_logo: IPG
+          company_url: 'https://www.interpublic.com/'
           location: New York
           date_start: '2015-09-14'
           date_end: '2019-03-21'
