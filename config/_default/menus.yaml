@@ -7,12 +7,12 @@ main:
   - name: Home
     url: '#about'
     weight: 10
-  - name: Posts
-    url: '#posts'
-    weight: 20
   - name: Portofolio
     url: '#projects'
     weight: 30
+  - name: Posts
+    url: '#posts'
+    weight: 20
 
 
 # Link to a PDF of your resume/CV from the menu.
