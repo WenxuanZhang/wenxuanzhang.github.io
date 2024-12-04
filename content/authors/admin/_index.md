@@ -67,13 +67,13 @@ email: ''
 highlight_name: true
 ---
 
-Hello, world! I am Wenxuan Zhang, a data science practitioner with experience in marketing, advertising and retail industry. I am passionate about using data to solve practical business questions including but not limited to:
+Hello, world! I am Wenxuan Zhang, a data science practitioner with experience in marketing, advertising and retail industry. I am passionate about using data to solve practical business problmes including:
 
-* What creative copy is more effective in driving brand awareness?
-* Would the incremental investment in tik tok generate more social impact?
-* Which customer is more likely to buy our product?
+* What creative copy is the most effective in driving brand awareness?
+* Would the incremental investment in tik tok generate more conversion?
+* Which customer is more likely to buy our products?
 
 you name it. 
 
-I am also an archer and when I am not crunching data or coding, you might find me practicing in the archery club.
+I am also an archer and when I am not crunching data or coding, you might find me shoot arrows in the archery club.
 {style="text-align: justify;"}
